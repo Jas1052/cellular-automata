@@ -1,0 +1,17 @@
+h1{
+    font-family: "Courier New";
+    font-style: normal;
+    font-size: 5rem; 
+    padding-left: 2rem; 
+    padding-top: 2rem;
+}
+  .gamebox{
+    padding: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

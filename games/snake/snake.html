@@ -1,0 +1,99 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<h1 id="score">5</h1>
+<canvas id="gc" width="900" height="900" class="gamebox"></canvas>
+
+<script>
+window.onload = function() {
+
+	var canv = document.getElementById("gc");
+	var ctx = canv.getContext("2d");
+	document.addEventListener("keydown",keyPush);
+	setInterval(game,1000/15);
+}
+
+var gs = var tc = 30; //size of board
+var playerX = Math.floor(Math.random() * tc);
+var playerY = Math.floor(Math.random() * tc); //coord of player
+var fruitX = Math.floor(Math.random() * tc); //x coord of fuit
+var fruitY = Math.floor(Math.random() * tc); //y coord of fruit
+var xv = var yv = 0
+var trail=[]; //cords of body
+var tail = 5; //length of tail
+
+function game() {
+	document.getElementById("score").innerHTML = trail.length;
+	playerX += xv;
+	playerY += yv;
+	if(playerX < 0) {
+		startOver();
+		//location.reload();
+		// playerX = tc-1;
+	}
+	if(playerX > tc - 1) {
+		startOver();
+		//location.reload();
+		//playerX = 0;
+	}
+	if(playerY < 0) {
+		startOver();
+		//location.reload();
+		//playerY = tc - 1;
+	}
+	if(playerY > tc - 1) {
+		startOver();
+		//location.reload();
+		//playerY = 0;
+	}
+	ctx.fillStyle = "gray"; //color of canvas
+	ctx.fillRect(0,0,canv.width,canv.height); 
+
+	ctx.fillStyle = "white";
+	for(var i = 0; i < trail.length; i++) {
+		ctx.fillRect(trail[i].x * gs,trail[i].y * gs,gs - 2,gs - 2);
+		//Checks if snake hits itself
+		if(trail[i].x == playerX && trail[i].y == playerY) {
+			tail = 5;
+		}
+	}
+	trail.push({x:playerX,y:playerY}); //updating coords to trail
+
+	while(trail.length > tail) {
+		trail.shift();
+	}
+
+	//player gets fruit
+	if(fruitX == playerX && fruitY == playerY) {
+		tail++;
+		fruitX = Math.floor(Math.random() * tc);
+		fruitY = Math.floor(Math.random() * tc);
+	}
+	ctx.fillStyle = "red";
+	ctx.fillRect(fruitX * gs,fruitY * gs,gs - 2,gs - 2);
+}
+function startOver(){
+	playerX = Math.floor(Math.random() * tc);
+	playerY = Math.floor(Math.random() * tc); //coord of player
+	fruitX = Math.floor(Math.random() * tc); //x coord of fuit
+	fruitY = Math.floor(Math.random() * tc); //y coord of fruit
+	xv = yv = 0
+	trail = []; //cords of body
+	tail = 5; //length of tail
+}
+function keyPush(evt) {
+	switch(evt.keyCode) {
+		case 37:
+			xv =- 1;yv = 0;
+			break;
+		case 38:
+			xv = 0;yv =- 1;
+			break;
+		case 39:
+			xv = 1;yv = 0;
+			break;
+		case 40:
+			xv = 0;yv = 1;
+			break;
+	}
+}
+</script>
