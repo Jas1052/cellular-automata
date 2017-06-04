@@ -1,9 +1,13 @@
 h1{
     font-family: "Courier New";
     font-style: normal;
-    font-size: 5rem; 
+    font-size: 3rem; 
     padding-left: 2rem; 
+    padding-top: 0.5rem;
+}
+h1.current{
     padding-top: 2rem;
+    font-size: 7rem; 
 }
   .gamebox{
     padding: 0;
