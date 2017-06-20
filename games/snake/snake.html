@@ -32,6 +32,7 @@ trail=[]; //cords of body
 tail = 5; //length of tail
 
 function game() {
+	checkScore();
 	document.getElementById("score").innerHTML = trail.length;
 	playerX += xv;
 	playerY += yv;
@@ -82,19 +83,7 @@ function game() {
 	ctx.fillRect(fruitX * gs,fruitY * gs,gs - 2,gs - 2);
 }
 function startOver(){
-	current = document.getElementById("score").innerHTML;
-	best = document.getElementById("bestscore").innerHTML;
-	bestVal = parseInt(best.substring(6));
-	console.log(current);
-	console.log(bestVal);	
-	if(best == "Best: N/a"){
-		document.getElementById("bestscore").innerHTML = "Best: " + current;
-	}
-	if(current > bestVal){
-		document.getElementById("bestscore").innerHTML = "Best: " + current;
-
-	}
-
+	checkScore();
 	playerX = Math.floor(Math.random() * tc);
 	playerY = Math.floor(Math.random() * tc); //coord of player
 	fruitX = Math.floor(Math.random() * tc); //x coord of fuit
@@ -117,6 +106,20 @@ function keyPush(evt) {
 		case 40:
 			xv = 0;yv = 1;
 			break;
+	}
+}
+function checkScore(){
+	current = document.getElementById("score").innerHTML;
+	best = document.getElementById("bestscore").innerHTML;
+	bestVal = parseInt(best.substring(6));
+	console.log(current);
+	console.log(bestVal);	
+	if(best == "Best: N/a"){
+		document.getElementById("bestscore").innerHTML = "Best: " + current;
+	}
+	if(current > bestVal){
+		document.getElementById("bestscore").innerHTML = "Best: " + current;
+
 	}
 }
 </script>
