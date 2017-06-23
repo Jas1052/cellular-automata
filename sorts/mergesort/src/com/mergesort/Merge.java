@@ -5,8 +5,7 @@ import java.lang.*;
 
 public class Merge {
 
-   private static void mergeSort(int [] numbers, int left, int mid, int right)
-    {
+   private static void mergeSort(int [] numbers, int left, int mid, int right){
         int [] temp = new int[25];
         int i, left_end, num_elements, tmp_pos;
 
@@ -14,8 +13,7 @@ public class Merge {
         tmp_pos = left;
         num_elements = (right - left + 1);
 
-        while ((left <= left_end) && (mid <= right))
-        {
+        while ((left <= left_end) && (mid <= right)){
             if (numbers[left] <= numbers[mid])
                 temp[tmp_pos++] = numbers[left++];
             else
@@ -28,39 +26,34 @@ public class Merge {
         while (mid <= right)
             temp[tmp_pos++] = numbers[mid++];
 
-        for (i = 0; i < num_elements; i++)
-        {
+        for (i = 0; i < num_elements; i++){
             numbers[right] = temp[right];
             right--;
         }
     }
 
-    private static void MergeSort_Recursive(int [] numbers, int left, int right)
-    {
+    private static void mergeRecurse(int [] numbers, int left, int right){
         int mid;
-
-        if (right > left)
-        {
+        if (right > left){
             mid = (right + left) / 2;
-            MergeSort_Recursive(numbers, left, mid);
-            MergeSort_Recursive(numbers, (mid + 1), right);
+            mergeRecurse(numbers, left, mid);
+            mergeRecurse(numbers, (mid + 1), right);
 
             mergeSort(numbers, left, (mid+1), right);
         }
     }
 
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args){
         int[] numbers = { 3, 8, 8, 5, 2, 9, 6, 100 };
         int len = numbers.length;
 
         System.out.println("MergeSort By Recursive Method");
 
-        MergeSort_Recursive(numbers, 0, len - 1);
+        mergeRecurse(numbers, 0, len - 1);
 
-        for (int i = 0; i < len; i++)
-            System.out.println(numbers[i] + " ");
-
+        for(int number : numbers) {
+            System.out.println(number + " ");
+        }
     }
 }
