@@ -6,6 +6,7 @@ import java.lang.*;
 public class Merge {
 
    private static void mergeSort(int [] numbers, int left, int mid, int right){
+       //sorts numbers in given indices
         int [] temp = new int[25];
         int i, left_end, num_elements, tmp_pos;
 
@@ -38,9 +39,11 @@ public class Merge {
         int mid;
         if (right > left){
             mid = (right + left) / 2;
+            //Splits into two groups to recurse
             mergeRecurse(numbers, left, mid);
             mergeRecurse(numbers, (mid + 1), right);
 
+            //sorts the given section
             mergeSort(numbers, left, (mid+1), right);
         }
     }
