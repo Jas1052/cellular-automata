@@ -32,6 +32,8 @@ public class Merge {
         }
     }
 
+    // Recursive function that also calls merge
+
     private static void mergeRecurse(int [] numbers, int left, int right){
         int mid;
         if (right > left){
