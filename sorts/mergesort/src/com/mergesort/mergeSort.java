@@ -3,9 +3,9 @@ package com.mergesort;
 import java.lang.*;
 
 
-public class Merge {
+public class mergeSort {
 
-   private static void mergeSort(int [] numbers, int left, int mid, int right){
+   private static void merge(int [] numbers, int left, int mid, int right){
        //sorts numbers in given indices
         int [] temp = new int[25];
         int i, left_end, num_elements, tmp_pos;
@@ -44,7 +44,7 @@ public class Merge {
             mergeRecurse(numbers, (mid + 1), right);
 
             //sorts the given section
-            mergeSort(numbers, left, (mid+1), right);
+            merge(numbers, left, (mid+1), right);
         }
     }
 
