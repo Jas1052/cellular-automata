@@ -65,20 +65,25 @@ public class mergeSort {
                 reader.next();
             }
         }
-        System.out.println("You chose: " + input);
+        System.out.println("Generating random array of length " + input + ". ");
+        System.out.print("Unsorted: ");
         int[] numbers = new int[input];
         for(int i = 0; i < input; i++){
             //populates numbers with random integers between 0 and 100
             numbers[i] = ThreadLocalRandom.current().nextInt(0, 100);
+            if(i == input-1)
+                System.out.println(numbers[i]);
+            else
+                System.out.print(numbers[i] + ", ");
         }
 
         int len = numbers.length;
-
-
         mergeRecurse(numbers, 0, len - 1, len);
 
-        for(int number : numbers) {
-            System.out.println(number + " ");
+        System.out.print("Sorted: ");
+        for(int i = 0; i < input-1; i++) {
+            System.out.print(numbers[i] + ", ");
         }
+        System.out.println(numbers[input-1]);
     }
 }

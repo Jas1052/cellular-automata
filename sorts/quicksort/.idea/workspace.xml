@@ -20,8 +20,8 @@
       <file leaf-file-name="quickSort.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/quickSort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="25" column="9" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="25" selection-end-column="9" />
+            <state relative-caret-position="300">
+              <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -396,7 +396,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -406,8 +408,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/quickSort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="25" column="9" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="25" selection-end-column="9" />
+        <state relative-caret-position="300">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
