@@ -27,10 +27,12 @@ public class quickSort {
             //populates numbers with random integers between 0 and 100
             numbers[i] = ThreadLocalRandom.current().nextInt(0, 100);
         }
-        /*
+
+        System.out.print("Unsorted: ");
         for(int number: numbers){
-            System.out.println(number);
+            System.out.print(number);
+            System.out.print(" ");
         }
-        */
+
     }
 }
