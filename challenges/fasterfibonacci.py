@@ -20,8 +20,17 @@ def memFib(n, memo = {0:0, 1:1}):
         memo[n] = memFib(n-1, memo) + memFib(n-2, memo)
     return memo[n]
 
-depth = 7
+depth = 100
+
+start = time.time()
 
 print(fib(depth))
-print(memFib(depth))
+fibTime = time.time()
 print(bottomUpFib(depth)[-1]) # gets last element
+bottomUpTime = time.time()
+print(memFib(depth))
+memTime = time.time()
+
+print("Fib Time: " + str(fibTime-start))
+print("Bottom-Up Time: " + str(bottomUpTime-fibTime))
+print("Memoization Time: " + str(memTime-bottomUpTime))
