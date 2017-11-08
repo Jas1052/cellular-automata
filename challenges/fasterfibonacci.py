@@ -14,7 +14,11 @@ def bottomUpFib(n):
             fibs.append(fibs[-1] + fibs[-2])
         return fibs
 
-
+# memoization
+def memFib(n, memo = {0:0, 1:1}):
+    if n not in memo:
+        memo[n] = memFib(n-1, memo) + memFib(n-2, memo)
+    return memo[n]
 
 depth = 7
 
