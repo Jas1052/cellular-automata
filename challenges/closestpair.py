@@ -76,7 +76,7 @@ def translate(t, indices):
     secondPoint = t[indices[1]]
     return "The closest points are " + str(firstPoint) + " and " + str(secondPoint)
 
-# 
+# calls helper methods and search
 def closest_pair(t):
     i_x = sort_i_x(t)
     i_y = sort_i_y(t)
