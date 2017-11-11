@@ -58,16 +58,16 @@ def search(i,j, i_x, i_y, t):
 
         area = [j for j in i_y if abs(t[j][0] - x) <= bestDistance]
         # for points in best section
-        for p in range(len(area)):
-            r = p + 1
-            while r < len(area) and (t[i_y[r]][1] - t[i_y[p]][1]) < bestDistance and r - p <= 6:
-                newDistance = distanceWeight(t[i_y[p]], t[i_y[r]])
+        for index in range(len(area)):
+            nextIndex = index + 1
+            while nextIndex < len(area) and (t[i_y[nextIndex]][1] - t[i_y[index]][1]) < bestDistance and nextIndex - index <= 15:
+                newDistance = distanceWeight(t[i_y[index]], t[i_y[nextIndex]])
                 # check if new distance is smaller than closest in right/left
                 if newDistance < bestDistance:
                     bestDistance = newDistance
-                    i_min = p
-                    j_min = r
-                r = r + 1                  
+                    i_min = index
+                    j_min = nextIndex
+                nextIndex = nextIndex + 1                  
         return (i_min, j_min)
 
 # returns points from list and indices
@@ -83,7 +83,9 @@ def closest_pair(t):
     return search(0, len(t) - 1, i_x, i_y, t)
 
 # points = [(1, 7)]
-points = [(0, 1), (3, 2), (2, 3)]
+# points = [(0, 1), (3, 2), (2, 3)]
+# points = [(0, 1), (3, 2), (2, 3), (7, 3), (4, 2)]
+points = [(0, 1), (3, 2), (2, 3), (7, 3), (5, 2), (-1, -1), (-1, 0)]
 
 # print(sort_i_x(points))
 # print(sort_i_y(points))
