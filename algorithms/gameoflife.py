@@ -53,5 +53,6 @@ if __name__ == '__main__':
     board = generateBoard("......X.\nXX......\n.X...XXX")
     for _ in range(130):
         board = advanceBoard(board)
+        print("Cycle " + str(_) + ": ")
         print(boardToString(board, 2) + '\n')
         time.sleep(1)
